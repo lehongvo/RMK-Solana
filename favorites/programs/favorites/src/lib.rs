@@ -38,7 +38,7 @@ pub struct SetFavorite<'info> {
         init_if_needed,
         payer = user,
         space = ANCHOR_DISCRIMINATOR_SIZE + Favorite::INIT_SPACE,
-        seeds = [user.key().as_ref(), number.to_string().as_bytes(), color.as_bytes()],
+        seeds = [b"favorites", user.key().as_ref(), number.to_string().as_bytes(), color.as_bytes()],
         bump,
     )]  
     pub favorite: Account<'info, Favorite>,

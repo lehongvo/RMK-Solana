@@ -18,6 +18,7 @@ describe("favorites", () => {
 
   const [pdaOfUserAddress] = anchor.web3.PublicKey.findProgramAddressSync(
     [
+      Buffer.from("favorites"),
       user.publicKey.toBuffer(),
       Buffer.from(favoriteNumber.toString()),
       Buffer.from(favoriteColor)
@@ -77,6 +78,7 @@ describe("favorites", () => {
 
     const [pdaOfNewUserAddress] = anchor.web3.PublicKey.findProgramAddressSync(
       [
+        Buffer.from("favorites"),
         user.publicKey.toBuffer(),
         Buffer.from(newNumber.toString()),
         Buffer.from(newFavoriteColor)
